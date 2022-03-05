@@ -9,7 +9,7 @@ pipeline {
   
   stage ('build code  ') {
       steps {
-    	        sh " sudo scp * /home/ansible1/Calculator-App-Python/ && cd /home/ansible1/Calculator-App-Python/calculator && source bin/activate && cd .. &&  pip install -r requirements.txt"
+    	        sh " scp * /home/ansible1/Calculator-App-Python/ && cd /home/ansible1/Calculator-App-Python/calculator && source bin/activate && cd .. &&  pip install -r requirements.txt"
       }} 
   
     stage('test code') {
