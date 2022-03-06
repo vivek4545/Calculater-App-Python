@@ -9,11 +9,11 @@ pipeline {
   
   stage ('build code  ') {
       steps {
-    	        sh " cp * /home/ansible1/Calculator-App-Python/Calculater-App-Python/ && cd /home/ansible1/Calculator-App-Python/Calculater-App-Python/calculator && source bin/activate && cd .. &&  pip install -r requirements.txt"
+    	        sh "source calculator/bin/activate  &&  pip install -r requirements.txt"
       }} 
   
     stage('test code') {
       steps {
-        sh " cd /home/ansible1/Calculator-App-Python/calculator && source bin/activate && cd .. && flake8 --exclude=venv* --statistics &&  pytest -v --cov=calculator "
+        sh " source calculator/bin/activate && flake8 --exclude=venv* --statistics &&  pytest -v --cov=calculator "
     }}  
   }}
